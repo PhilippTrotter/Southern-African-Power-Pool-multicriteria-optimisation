@@ -1,0 +1,38 @@
+/*********************************************
+ * OPL 12.7.0.0 Data
+ * Author: pt428
+ * Creation Date: 3 Feb 2017 at 10:32:25
+ *********************************************/
+
+
+
+maxPotential2030 = 0.25;
+fossilRestriction = 1;
+//minPolSov = 1;
+//maxEmissions = 1;
+//indexPoint = 1;
+
+//establish Excel connection
+SheetConnection sheet("adjSADCPlanningExcelUpdated.xlsx");
+
+
+//load indices
+SupplyCountry from SheetRead(sheet,"'Indices'!A2:A13");
+DemandCountry from SheetRead(sheet,"'Indices'!C2:C13");
+Technology from SheetRead(sheet,"'Indices'!E2:E7");
+Year from SheetRead(sheet,"'Indices'!A18:A37");
+
+
+//load parameters
+supplyInput from SheetRead(sheet,"'Supply'!C2:C73");
+demandInput from SheetRead(sheet,"'adjDemand'!C2:C241");
+demandTotalInput from SheetRead(sheet,"'adjDemand'!G2:G21");
+gencostInput from SheetRead(sheet,"'adjGencost'!E2:E1441");
+transcostInput from SheetRead(sheet,"'Transcost'!F2:F865");
+CO2EmissionsInput from SheetRead(sheet,"'CO2Emissions'!B2:B7");
+
+
+
+//return model result
+quantityLongDash to SheetWrite(sheet,namePath);
+

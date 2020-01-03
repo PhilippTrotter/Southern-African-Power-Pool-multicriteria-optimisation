@@ -1,0 +1,39 @@
+/*********************************************
+ * OPL 12.6.3.0 Data
+ * Author: pt428
+ * Creation Date: 25 Oct 2016 at 13:52:31
+ *********************************************/
+
+
+//establish Excel connection
+SheetConnection sheet("ShortestPathExcelSHPR50.xlsx");
+
+
+//load indices
+StartCountry from SheetRead(sheet,"'Indices'!G2:G29");
+TerminateCountry from SheetRead(sheet,"'Indices'!G2:G29");
+RunStartCountry from SheetRead(sheet,"'Indices'!G2:G29");
+RunTerminateCountry from SheetRead(sheet,"'Indices'!G2:G29");
+
+
+//load parameters
+transcostEx from SheetRead(sheet,"'TranscostSH'!K2:K785");
+neighbourEx from SheetRead(sheet,"'NeighbourSH'!E2:E614657");
+
+
+//return model result
+x_binLong to SheetWrite(sheet,"Result!G2:G614657");
+/*
+quantityLong to SheetWrite(sheet,"ResultPolitics!F2:F69185");
+gencostInput to SheetWrite(sheet,"ResultPolitics!I2:I69185");
+transcostInput to SheetWrite(sheet,"ResultPolitics!K2:K69185");
+
+maxPoliticalRisk to SheetWrite(sheet,"ResultPoliticalRisk!E9");
+
+PR1ExternalPressure to SheetWrite(sheet,"ResultPoliticalRisk!B2:E2");
+PR2EnergySecurity to SheetWrite(sheet,"ResultPoliticalRisk!B3:E3");
+PR3InstitutionalIssues to SheetWrite(sheet,"ResultPoliticalRisk!B4:E4");
+PR4Instability to SheetWrite(sheet,"ResultPoliticalRisk!B5:E5");
+PR5Corruption to SheetWrite(sheet,"ResultPoliticalRisk!B6:E6");
+PR6LandAccess to SheetWrite(sheet,"ResultPoliticalRisk!B7:E7");
+ */

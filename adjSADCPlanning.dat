@@ -1,0 +1,34 @@
+/*********************************************
+ * OPL 12.6.3.0 Data
+ * Author: Philipp Trotter
+ * Creation Date: 14 Jul 2016 at 11:58:19
+ *********************************************/
+
+
+maxPotential2030 = 1;
+fossilRestriction = 1;
+minPolSov = 0;
+maxEmissions = 1;
+
+//establish Excel connection
+SheetConnection sheet("SADCPlanningExcel.xlsx");
+
+
+//load indices
+SupplyCountry from SheetRead(sheet,"'Indices'!A2:A13");
+DemandCountry from SheetRead(sheet,"'Indices'!C2:C13");
+Technology from SheetRead(sheet,"'Indices'!E2:E7");
+
+
+//load parameters
+supplyInput from SheetRead(sheet,"'Supply'!C2:C73");
+demandInput from SheetRead(sheet,"'Demand'!D2:D13");
+demandTotal from SheetRead(sheet,"'Demand'!D15");
+gencostInput from SheetRead(sheet,"'Gencost'!D2:D73");
+transcostInput from SheetRead(sheet,"'Transcost'!D2:D865");
+CO2EmissionsInput from SheetRead(sheet,"'CO2Emissions'!B2:B7");
+
+
+
+//return model result
+quantityLong to SheetWrite(sheet,"Results!D2:D865");
